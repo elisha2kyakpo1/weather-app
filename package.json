@@ -27,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/elisha2kyakpo1/weather-app/issues"
   },
-  "homepage": "https://github.com/elisha2kyakpo1/weather-app#readme"
+  "homepage": "https://github.com/elisha2kyakpo1/weather-app#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0"
+  }
 }

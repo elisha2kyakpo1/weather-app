@@ -1,5 +1,5 @@
+const content = document.querySelector('#content');
 const pageload = () => {
-  const content = document.querySelector('#content');
   const divMain = document.createElement('div');
   divMain.setAttribute('class', 'mainDiv');
   const divContainer = document.createElement('div');
@@ -12,6 +12,17 @@ const pageload = () => {
   divMain.appendChild(divContainer);
   divContainer.setAttribute('class', 'page-container');
   content.appendChild(divMain);
+
+  const form = document.createElement('form');
+  form.setAttribute('class', 'search-form');
+  const input = document.createElement('input');
+  input.setAttribute('class', 'form-input form-control');
+  input.value = 'search';
+  const button = document.createElement('button');
+  button.setAttribute('class', 'sub-button');
+  form.appendChild(input);
+  form.appendChild(button);
+  content.appendChild(form);
 };
 
-export { pageload };
+export { pageload, content };
