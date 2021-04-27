@@ -4,6 +4,11 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+.content-div {
+  justify-content: center;
+  align-items: center;
+}
+
 .mainDiv {
   display: flex;
   flex-direction: column;

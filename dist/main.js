@@ -16,7 +16,17 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _weather_page_loader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./weather/page-loader */ \"./src/weather/page-loader.js\");\n\n\n(0,_weather_page_loader__WEBPACK_IMPORTED_MODULE_0__.pageload)();\n\n//# sourceURL=webpack://weather-app/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _weather_page_loader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./weather/page-loader */ \"./src/weather/page-loader.js\");\n/* harmony import */ var _weather_api_loader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./weather/api-loader */ \"./src/weather/api-loader.js\");\n\n\n\n(0,_weather_api_loader__WEBPACK_IMPORTED_MODULE_1__.weatherData)();\n(0,_weather_page_loader__WEBPACK_IMPORTED_MODULE_0__.pageload)();\n\n//# sourceURL=webpack://weather-app/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/weather/api-loader.js":
+/*!***********************************!*\
+  !*** ./src/weather/api-loader.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"weatherData\": () => (/* binding */ weatherData)\n/* harmony export */ });\nconst weatherData = () => {\n  const button = document.querySelector('.submit');\n  const cityName = document.querySelector('.location');\n  const proxy = 'https://cors-anywhere.herokuapp.com/';\n  const api = `${proxy}https://api.openweathermap.org/data/2.5/weather?q=${cityName.value}&appid=7eda76c00c8d93b65261bc92f2f405e0`;\n  button.addEventListener('click', () => {\n    fetch(api)\n      .then(response => {\n        response.json();\n      })\n      .then(data => {\n        window.console.log(data);\n      });\n  });\n};\n\n\n\n//# sourceURL=webpack://weather-app/./src/weather/api-loader.js?");
 
 /***/ }),
 
