@@ -1,29 +1,36 @@
 // require('dotenv').config();
 
-window.addEventListener('load', () => {
-  let lat;
-  let long;
+let lat;
+let long;
 
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(position => {
-      lat = position.coords.latitude;
-      long = position.coords.longitude;
-    });
-  }
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(position => {
+    lat = position.coords.latitude;
+    long = position.coords.longitude;
+  });
+}
 
-  const button = document.querySelector('.submit');
-  const cityName = document.querySelector('.location');
-  const api = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${process.env.API_KEY}`;
-  // button.addEventListener('click', () => {
-  fetch(api, { mode: 'cors' })
-    .then(response => {
-      response.json();
-    })
-    .then(data => {
-      console.log(data);
-    });
-  // });
-});
+//   const api = {
+//     key: '7eda76c00c8d93b65261bc92f2f405e0',
+//     url: 'https://api.openweathermap.org/data/2.5/',
+//   };
+//   // const button = document.querySelector('.submit');
+//   // const cityName = document.querySelector('.location');
+
+//   const getResults = (location) => {
+//     fetch(`${api.url}weather?q=${location}&units=metric&APPID=${api.key}`)
+//     .then(weather => {
+//       return weather.json;
+//     }).then( data => {
+//       console.log(data);
+//     })
+//   }
+
+// button.addEventListener('click', (action) => {
+//   action.preventDefault();
+//   getResults(input.value)
+// })
+
 // const temp = () => {
 //   const tempChange = document.querySelector('content');
 //   const contentImageChange = document.createElement('div');
@@ -99,5 +106,3 @@ window.addEventListener('load', () => {
 //     document.querySelector(elementId).innerText = value;
 //   }
 // }
-
-// export { weatherData, temp };

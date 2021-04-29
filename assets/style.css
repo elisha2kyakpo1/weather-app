@@ -2,11 +2,21 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Poppins', sans-serif;
+  background-image: url(./img/sunny.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .content-div {
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.search-form {
+  display: flex;
+  margin-top: 20px;
 }
 
 .mainDiv {
@@ -18,4 +28,31 @@ body {
 
 .app-title {
   font-weight: 800;
+  color: #fff;
+}
+
+.weather-div {
+  margin-top: 40px;
+  height: 40px;
+  width: 40px;
+  border: 1px solid #fff;
+}
+
+.sub-button {
+  border: none;
+  font-size: 18px;
+  background-color: #dbeafe;
+  border-radius: 0 5px 5px 0;
+}
+
+.sub-button:hover {
+  background-color: #93c5fd;
+}
+
+.form-input {
+  border: 1px solid #fff;
+  font-size: 18px;
+  border-radius: 5px 0 0 5px;
+  padding: 5px 3px;
+  outline: none;
 }
