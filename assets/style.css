@@ -29,6 +29,7 @@ body {
 .app-title {
   font-weight: 800;
   color: #fff;
+  margin-top: 20px;
 }
 
 .weather-div {

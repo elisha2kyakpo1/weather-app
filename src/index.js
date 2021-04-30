@@ -1,5 +1,5 @@
-import { processData } from './weather/page-loader';
-// import { weatherData } from './weather/api-loader';
+import { processData, getWeatherData } from './weather/page-loader';
 
 // weatherData();
+getWeatherData();
 processData();
