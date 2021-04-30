@@ -1,5 +1,3 @@
-// import { processData } from './weather/page-loader';
-// import { weatherData } from './weather/api-loader';
+import { weatherData } from './weather/temp';
 
-// weatherData();z
-// processData();
+weatherData();

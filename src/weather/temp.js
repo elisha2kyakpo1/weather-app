@@ -10,47 +10,8 @@ pageTitle.textContent = 'Weather App';
 divMain.appendChild(pageTitle);
 content.appendChild(divMain);
 const searchButton = document.getElementById('searchbutton');
-let searchInput = document.getElementById('searchinput');
-searchButton.addEventListener('click', (e) => {
-  getWeatherData(searchInput.value);
-  e.searchInput = '';
-});
-
-const api = {
-  key: '&appid=7eda76c00c8d93b65261bc92f2f405e0',
-  url: 'https://api.openweathermap.org/data/2.5/weather?q=',
-};
-
-function getWeatherData(location) {
-  searchButton.disabled = true;
-
-  fetch(`${api.url}${location}${api.key}`, { mode: 'cors' })
-    .then(async (response) => {
-      const json = await response.json();
-      if (!json.message) {
-        processData(json);
-      } else {
-        createError(json.message);
-        searchButton.disabled = false;
-      }
-    });
-}
-
-function processData(json) {
-  const data = {
-    location: `${json.name}, ${json.sys.country}`,
-    temp: `${Math.round(json.main.temp) - 273} °C`,
-    feels_like: `${Math.round(json.main.feels_like) - 273} °C`,
-    humidity: `${json.main.humidity} %`,
-    wind_speed: `${Math.round(json.wind.speed)} MPH`,
-    description: `${json.weather[0].description}`,
-    icon: `${json.weather[0].icon}`,
-  };
-  searches = [data, ...searches];
-  render();
-}
-
-function createError(message) {
+const searchInput = document.getElementById('searchinput');
+const createError = (message) => {
   if (showError) {
     showError = false;
     const search = document.getElementById('search');
@@ -66,9 +27,9 @@ function createError(message) {
       showError = true;
     }, 2200);
   }
-}
+};
 
-function render() {
+const render = () => {
   const container = document.getElementById('history');
   container.textContent = '';
   searches.forEach((search) => {
@@ -89,61 +50,86 @@ function render() {
     description.id = 'description';
     datadiv.appendChild(description);
     const temp = document.createElement('p');
-    temp.textContent = 'Temperature: ' + search.temp;
+    temp.textContent = `Temperature: ${search.temp}`;
     temp.id = 'temp';
     datadiv.appendChild(temp);
     const feelsLike = document.createElement('p');
-    feelsLike.textContent = 'Feels like: ' + search.feels_like;
+    feelsLike.textContent = `Feels like: ${search.feels_like}`;
     feelsLike.id = 'feels_like';
     datadiv.appendChild(feelsLike);
     const humidity = document.createElement('p');
-    humidity.textContent = 'Humidity: ' + search.humidity;
+    humidity.textContent = `Humidity: ${search.humidity}`;
     humidity.id = 'humidity';
     datadiv.appendChild(humidity);
     const windSpeed = document.createElement('p');
-    windSpeed.textContent = 'Wind speed: ' + search.wind_speed;
+    windSpeed.textContent = `Wind speed: ${search.wind_speed}`;
     windSpeed.id = 'wind_speed';
     datadiv.appendChild(windSpeed);
     innerDiv.appendChild(datadiv);
     const icon = document.createElement('img');
-    icon.src = 'https://openweathermap.org/img/wn/' + search.icon + '@2x.png';
     icon.id = 'icon';
-    innerDiv.appendChild(icon);
+    // const tempSwitch = document.createElement('div');
+    // const tempSwitchInner = document.createElement('div');
+    // tempSwitch.appendChild(tempSwitchInner);
+    // const label = document.createElement('label');
+    // label.setAttribute('class', 'swtch');
+    // tempSwitchInner.appendChild(label);
+    // const checkBox = document.createElement('input');
+    // const span = document.createElement('span');
+    // span.setAttribute('class', 'slider round');
+    // label.appendChild(checkBox);
+    // label.appendChild(span);
+
+    // tempSwitch.setAttribute('class', 'temp-switch');
     container.appendChild(main);
+    // container.appendChild(tempSwitch);
+
+    // <input type="checkbox" checked>
+
     main.classList.toggle('fade');
     setTimeout(() => {
       main.classList.toggle('fade');
     }, 200);
   });
   searchButton.disabled = false;
-}
+};
 
-async function getGif(url) {
-  const response = await fetch(url, { mode: 'cors' });
-  const data = await response.json();
-  return data.data.images.original.url;
-}
+const api = {
+  key: '&appid=7eda76c00c8d93b65261bc92f2f405e0',
+  url: 'https://api.openweathermap.org/data/2.5/weather?q=',
+};
 
-let theme = 'light';
-const themebutton = document.getElementById('theme');
-const root = document.documentElement;
-const topicon = document.getElementById('topicon');
-themebutton.addEventListener('click', () => {
-  if (theme === 'light') {
-    root.style.setProperty('--background-color', '#121212');
-    root.style.setProperty('--inputborder-color', '#ffffff');
-    root.style.setProperty('--text-color', '#ffffff');
-    themebutton.innerHTML = 'Light Theme';
-    topicon.src = 'https://openweathermap.org/img/wn/02n@2x.png';
-    theme = 'dark';
-  } else {
-    root.style.setProperty('--background-color', '#ffffff');
-    root.style.setProperty('--inputborder-color', 'rgb(72, 72, 74)');
-    root.style.setProperty('--text-color', '#000000');
-    themebutton.innerHTML = 'Dark Theme';
-    topicon.src = 'https://openweathermap.org/img/wn/02d@2x.png';
-    theme = 'light';
-  }
+const processData = (json) => {
+  const data = {
+    location: `${json.name}, ${json.sys.country}`,
+    temp: `${Math.round(json.main.temp) - 273} °C`,
+    feels_like: `${Math.round(json.main.feels_like) - 273} °C`,
+    humidity: `${json.main.humidity} %`,
+    wind_speed: `${Math.round(json.wind.speed)} MPH`,
+    description: `${json.weather[0].description}`,
+    icon: `${json.weather[0].icon}`,
+  };
+  searches = [data, ...searches];
+  render();
+};
+
+const getWeatherData = (location) => {
+  searchButton.disabled = true;
+
+  fetch(`${api.url}${location}${api.key}`, { mode: 'cors' })
+    .then(async (response) => {
+      const json = await response.json();
+      if (!json.message) {
+        processData(json);
+      } else {
+        createError(json.message);
+        searchButton.disabled = false;
+      }
+    });
+};
+
+searchButton.addEventListener('click', () => {
+  getWeatherData(searchInput.value);
 });
 
-getWeatherData();
+export { getWeatherData };
