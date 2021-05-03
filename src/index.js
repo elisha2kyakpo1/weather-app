@@ -1,3 +1,3 @@
-import { weatherData } from './weather/temp';
+import { getWeatherData } from './weather/temp';
 
-weatherData();
+getWeatherData();

@@ -68,24 +68,7 @@ const render = () => {
     innerDiv.appendChild(datadiv);
     const icon = document.createElement('img');
     icon.id = 'icon';
-    // const tempSwitch = document.createElement('div');
-    // const tempSwitchInner = document.createElement('div');
-    // tempSwitch.appendChild(tempSwitchInner);
-    // const label = document.createElement('label');
-    // label.setAttribute('class', 'swtch');
-    // tempSwitchInner.appendChild(label);
-    // const checkBox = document.createElement('input');
-    // const span = document.createElement('span');
-    // span.setAttribute('class', 'slider round');
-    // label.appendChild(checkBox);
-    // label.appendChild(span);
-
-    // tempSwitch.setAttribute('class', 'temp-switch');
     container.appendChild(main);
-    // container.appendChild(tempSwitch);
-
-    // <input type="checkbox" checked>
-
     main.classList.toggle('fade');
     setTimeout(() => {
       main.classList.toggle('fade');
@@ -112,6 +95,14 @@ const processData = (json) => {
   searches = [data, ...searches];
   render();
 };
+
+const tempSwitch = document.getElementById('my-switch');
+
+tempSwitch.addEventListener('click', () => {
+  if (processData.data.temp) {
+    return `${(processData.data.temp * 1.8) + 32} °F`;
+  }
+});
 
 const getWeatherData = (location) => {
   searchButton.disabled = true;

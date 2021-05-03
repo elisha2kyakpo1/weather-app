@@ -7,28 +7,18 @@ In this project, I have created a website that uses external API to retrieve dat
 
 To get started, you should first get this file in your local machine by cloning or forking this project or typing in your terminal
 
-> git clone https://github.com/elisha2kyakpo1/weather-app.git
-
-> cd weather-app
-
-> npn install
-
-> npx webpack --watch
-
-## Contributing
-
-Contributions, issues and feature requests are welcome! Start by:
-
-Forking the project
-
-Cloning the project to your local machine
-
-cd into the project directory
-
 ```
- cd restaurant-page
+  git clone https://github.com/elisha2kyakpo1/weather-app.git
 
- git checkout -b your-branch-name
+  cd weather-app
+
+  npn install
+
+  npx webpack --watch
+
+  cd restaurant-page
+
+  git checkout -b your-branch-name`
 ```
 
 Make your contributions
