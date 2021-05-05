@@ -82,6 +82,11 @@ const api = {
   url: 'https://api.openweathermap.org/data/2.5/weather?q=',
 };
 
+const convertToF = (celsius) => {
+  const fahrenheit = celsius(9 / 5) + 32;
+  return fahrenheit;
+};
+
 const processData = (json) => {
   const data = {
     location: `${json.name}, ${json.sys.country}`,
