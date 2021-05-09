@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://bootswatch.com/4/yeti/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap" rel="stylesheet">  <title>Weather-app</title>
+</head>
+<body>
+  <div id="content" class=" content-div d-flex">
+    <p class="error"></p>
+  </div>
+  
+  <form class="mb-5">
+    <input
+      class="form-input"
+      type="text"
+      name="city"
+      id="city-name"
+      required
+      placeholder="Enter city name"
+    />
+    <button class="sub-button" type="submit" id="search-btn">Search</button>
+  </form>
+  <div class="weather-container">
+    <div class="button-container">
+      <div class="metric">C</div>
+      <div class="imperial">F</div>
+    </div>
+    <div class="basic-info-container">
+      <p class="city-name">Berlin</p>
+      <p class="weather-description">Cold</p>
+      <img class="icon" alt="weather icon" />
+      <p class="temperature">22Grad</p>
+    </div>
+    <div class="weather-condition d-flex">
+      <div class="wind-container info">
+        <div>
+          <p class="wind-data"></p>
+        </div>
+      </div>
+      <div class="pressure-container info">
+        <div>
+          <p class="pressure-data"></p>
+        </div>
+      </div>
+      <div class="feels-like-container info">
+        <div>
+          <p class="feel-data"></p>
+        </div>
+      </div>
+      <div class="humidity-container info">
+        <div>
+          <p class="humidity-data"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="/dist/main.js"></script>
+</body>
+</html>
