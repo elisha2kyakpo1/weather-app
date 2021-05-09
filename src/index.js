@@ -5,7 +5,6 @@ const searchBtn = document.getElementById('search-btn');
 const metricBtn = document.querySelector('.metric');
 const imperialBtn = document.querySelector('.imperial');
 
-// Select only the needed information
 function filterWeatherData(data) {
   return {
     id: data.weather[0].id,
@@ -20,8 +19,7 @@ function filterWeatherData(data) {
   };
 }
 
-// Fetch information
-function fetchWeather(name, unit) {
+const fetchWeather = (name, unit) => {
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${name}&units=${unit}&appid=06390dd87d5264ce0e550a12e2f79b20`,
     {
@@ -39,13 +37,10 @@ function fetchWeather(name, unit) {
       const selectedCityWeather = filterWeatherData(resp);
       renderInfo(selectedCityWeather, unit);
     })
-    .catch((err) => {
-      alert(err);
-    });
-}
+    .catch((err) => err);
+};
 
-// Add functionality to buttons
-const setWeather = ((e) => {
+const setWeather = (() => {
   let unit = 'metric';
   let name = 'new york';
 
@@ -54,7 +49,7 @@ const setWeather = ((e) => {
       e.preventDefault();
       name = inputEl.value;
       fetchWeather(name, unit);
-    } else alert('Put a valid city name');
+    }
   };
 
   const switchToMetric = () => {
@@ -74,7 +69,6 @@ const setWeather = ((e) => {
   };
 })();
 
-// Initialize
 fetchWeather('new york', 'metric');
 
 searchBtn.addEventListener('click', (e) => {

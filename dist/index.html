@@ -13,30 +13,17 @@
 <body>
   <div id="content" class=" content-div d-flex">
   </div>
-  <div id="search" class="search-div d-flex">
-    <div class="d-flex">
-      <input type="text" class="form-input" id="searchinput" placeholder="Enter location">
-      <button class="sub-button" id="searchbutton">Search</button>
-    </div>
-    <div id="my-switch" class="switch-div mt-2">
-      <label class="switch">
-        <input type="checkbox">
-        <span class="slider round"></span>
-      </label>
-    </div>
-  </div>
-
-  <div id="history"></div>
-
-  <form>
+  
+  <form class="mb-5">
     <input
+      class="form-input"
       type="text"
       name="city"
       id="city-name"
       required
-      placeholder="e.g. new york"
+      placeholder="Enter city name"
     />
-    <button type="submit" id="search-btn">Search</button>
+    <button class="sub-button" type="submit" id="search-btn">Search</button>
   </form>
   <div class="weather-container">
     <div class="button-container">
@@ -49,32 +36,26 @@
       <img class="icon" alt="weather icon" />
       <p class="temperature">22Grad</p>
     </div>
-    <div class="wind-container info">
-      <img src="./images/wind.svg" class="svg" />
-      <div>
-        <p>Wind:</p>
-        <p class="wind-data"></p>
+    <div class="weather-condition d-flex">
+      <div class="wind-container info">
+        <div>
+          <p class="wind-data"></p>
+        </div>
       </div>
-    </div>
-    <div class="pressure-container info">
-      <img src="./images/arrow-down.svg" class="svg" />
-      <div>
-        <p>Pressure:</p>
-        <p class="pressure-data"></p>
+      <div class="pressure-container info">
+        <div>
+          <p class="pressure-data"></p>
+        </div>
       </div>
-    </div>
-    <div class="feels-like-container info">
-      <img src="./images/thermometer.svg" class="svg" />
-      <div>
-        <p>Feels like:</p>
-        <p class="feel-data"></p>
+      <div class="feels-like-container info">
+        <div>
+          <p class="feel-data"></p>
+        </div>
       </div>
-    </div>
-    <div class="humidity-container info">
-      <img src="./images/droplet.svg" class="svg" />
-      <div>
-        <p>Humidity:</p>
-        <p class="humidity-data"></p>
+      <div class="humidity-container info">
+        <div>
+          <p class="humidity-data"></p>
+        </div>
       </div>
     </div>
   </div>
