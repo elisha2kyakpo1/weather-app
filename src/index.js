@@ -1,4 +1,4 @@
-import { renderInfo } from './weather/temp';
+import renderInfo from './weather/temp';
 
 const inputEl = document.getElementById('city-name');
 const searchBtn = document.getElementById('search-btn');

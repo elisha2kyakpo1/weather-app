@@ -41,4 +41,4 @@ const renderInfo = (data, unit) => {
   }
 };
 
-export { renderInfo };
+export default renderInfo;
