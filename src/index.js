@@ -6,19 +6,17 @@ const metricBtn = document.querySelector('.metric');
 const imperialBtn = document.querySelector('.imperial');
 const errors = document.querySelector('.error');
 
-function filterWeatherData(data) {
-  return {
-    id: data.weather[0].id,
-    name: data.name,
-    description: data.weather[0].description,
-    icon: data.weather[0].icon,
-    temp: Math.round(data.main.temp),
-    feels: Math.round(data.main.feels_like),
-    humidity: data.main.humidity,
-    wind: data.wind.speed,
-    pressure: data.main.pressure,
-  };
-}
+const filterWeatherData = (data) => ({
+  id: data.weather[0].id,
+  name: data.name,
+  description: data.weather[0].description,
+  icon: data.weather[0].icon,
+  temp: Math.round(data.main.temp),
+  feels: Math.round(data.main.feels_like),
+  humidity: data.main.humidity,
+  wind: data.wind.speed,
+  pressure: data.main.pressure,
+});
 
 const fetchWeather = (name, unit) => {
   fetch(
@@ -40,7 +38,7 @@ const fetchWeather = (name, unit) => {
     })
     .catch((err) => {
       if (err) {
-        errors.textContent = err;
+        errors.textContent = `${err}!`;
         setTimeout(() => document.querySelector('.error').remove(), 3000);
       }
     });
@@ -48,7 +46,7 @@ const fetchWeather = (name, unit) => {
 
 const setWeather = (() => {
   let unit = 'metric';
-  let name = '';
+  let name = 'lusaka';
 
   const search = (e) => {
     if (inputEl.value) {
@@ -56,7 +54,6 @@ const setWeather = (() => {
       name = inputEl.value;
       fetchWeather(name, unit);
     }
-    name = '';
   };
 
   const switchToMetric = () => {

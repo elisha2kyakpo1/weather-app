@@ -6,6 +6,7 @@
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^7.24.0",
+    "eslint-auto-fix": "^1.0.3",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
     "stylelint": "^13.12.0",
