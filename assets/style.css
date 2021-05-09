@@ -9,6 +9,17 @@ body {
   color: #fff;
 }
 
+h1 {
+  color: #fff;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.error {
+  color: red;
+}
+
 .app-title {
   font-weight: 800;
   color: #fff;
@@ -41,6 +52,12 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+.content-div {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .weather-container {

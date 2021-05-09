@@ -4,9 +4,10 @@ const inputEl = document.getElementById('city-name');
 const searchBtn = document.getElementById('search-btn');
 const metricBtn = document.querySelector('.metric');
 const imperialBtn = document.querySelector('.imperial');
+const errors = document.querySelector('.error');
 
-const filterWeatherData = (data) => {
-  const info = {
+function filterWeatherData(data) {
+  return {
     id: data.weather[0].id,
     name: data.name,
     description: data.weather[0].description,
@@ -16,8 +17,8 @@ const filterWeatherData = (data) => {
     humidity: data.main.humidity,
     wind: data.wind.speed,
     pressure: data.main.pressure,
-  },
-};
+  };
+}
 
 const fetchWeather = (name, unit) => {
   fetch(
@@ -37,12 +38,17 @@ const fetchWeather = (name, unit) => {
       const selectedCityWeather = filterWeatherData(resp);
       renderInfo(selectedCityWeather, unit);
     })
-    .catch((err) => err);
+    .catch((err) => {
+      if (err) {
+        errors.textContent = err;
+        setTimeout(() => document.querySelector('.error').remove(), 3000);
+      }
+    });
 };
 
 const setWeather = (() => {
   let unit = 'metric';
-  let name = 'Lusaka';
+  let name = '';
 
   const search = (e) => {
     if (inputEl.value) {
@@ -50,6 +56,7 @@ const setWeather = (() => {
       name = inputEl.value;
       fetchWeather(name, unit);
     }
+    name = '';
   };
 
   const switchToMetric = () => {
