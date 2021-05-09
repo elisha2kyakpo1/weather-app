@@ -21,7 +21,7 @@ function filterWeatherData(data) {
 
 const fetchWeather = (name, unit) => {
   fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${name}&units=${unit}&appid=06390dd87d5264ce0e550a12e2f79b20`,
+    `https://api.openweathermap.org/data/2.5/weather?q=${name}&units=${unit}&appid=7eda76c00c8d93b65261bc92f2f405e0`,
     {
       mode: 'cors',
     },
