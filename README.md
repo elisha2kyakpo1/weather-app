@@ -16,7 +16,7 @@ To get started, you should first get this file in your local machine by cloning 
 
   npx webpack --watch
 
-  cd restaurant-page
+  cd weather-app
 
   git checkout -b your-branch-name`
 ```

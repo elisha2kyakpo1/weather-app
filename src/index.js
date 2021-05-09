@@ -5,8 +5,8 @@ const searchBtn = document.getElementById('search-btn');
 const metricBtn = document.querySelector('.metric');
 const imperialBtn = document.querySelector('.imperial');
 
-function filterWeatherData(data) {
-  return {
+const filterWeatherData = (data) => {
+  const info = {
     id: data.weather[0].id,
     name: data.name,
     description: data.weather[0].description,
@@ -16,8 +16,8 @@ function filterWeatherData(data) {
     humidity: data.main.humidity,
     wind: data.wind.speed,
     pressure: data.main.pressure,
-  };
-}
+  },
+};
 
 const fetchWeather = (name, unit) => {
   fetch(
@@ -42,7 +42,7 @@ const fetchWeather = (name, unit) => {
 
 const setWeather = (() => {
   let unit = 'metric';
-  let name = 'new york';
+  let name = 'Lusaka';
 
   const search = (e) => {
     if (inputEl.value) {
@@ -69,7 +69,7 @@ const setWeather = (() => {
   };
 })();
 
-fetchWeather('new york', 'metric');
+fetchWeather('Lusaka', 'metric');
 
 searchBtn.addEventListener('click', (e) => {
   setWeather.search(e);
