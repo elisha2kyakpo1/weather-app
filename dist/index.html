@@ -26,7 +26,58 @@
     </div>
   </div>
 
-<div id="history"></div>
+  <div id="history"></div>
+
+  <form>
+    <input
+      type="text"
+      name="city"
+      id="city-name"
+      required
+      placeholder="e.g. new york"
+    />
+    <button type="submit" id="search-btn">Search</button>
+  </form>
+  <div class="weather-container">
+    <div class="button-container">
+      <div class="metric">C</div>
+      <div class="imperial">F</div>
+    </div>
+    <div class="basic-info-container">
+      <p class="city-name">Berlin</p>
+      <p class="weather-description">Cold</p>
+      <img class="icon" alt="weather icon" />
+      <p class="temperature">22Grad</p>
+    </div>
+    <div class="wind-container info">
+      <img src="./images/wind.svg" class="svg" />
+      <div>
+        <p>Wind:</p>
+        <p class="wind-data"></p>
+      </div>
+    </div>
+    <div class="pressure-container info">
+      <img src="./images/arrow-down.svg" class="svg" />
+      <div>
+        <p>Pressure:</p>
+        <p class="pressure-data"></p>
+      </div>
+    </div>
+    <div class="feels-like-container info">
+      <img src="./images/thermometer.svg" class="svg" />
+      <div>
+        <p>Feels like:</p>
+        <p class="feel-data"></p>
+      </div>
+    </div>
+    <div class="humidity-container info">
+      <img src="./images/droplet.svg" class="svg" />
+      <div>
+        <p>Humidity:</p>
+        <p class="humidity-data"></p>
+      </div>
+    </div>
+  </div>
   <script src="main.js"></script>
 </body>
 </html>
